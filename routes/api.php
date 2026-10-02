@@ -5,8 +5,9 @@ use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\ProductUnitController;
 
 
+Route::get('/test', [ProductUnitController::class, 'test']);
 
-Route::post('/login', [AuthController::class, 'login']);
+Route::post('/login', [ProductUnitController::class, 'login']);
 Route::post('/refresh', [AuthController::class, 'refresh']);
 
 Route::middleware('auth:sanctum')->group(function () {

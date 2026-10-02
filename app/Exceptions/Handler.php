@@ -148,12 +148,12 @@ class Handler extends BaseHandler
     {
         $this->renderable(function (Throwable $e, $request) {
             if ($request->expectsJson() || $request->is('api/*')) {
-                
+
                 $message = config('app.debug') ? $e->getMessage() : 'server_error';
                 $translated_message = db_trans($message);
 
                 return response()->json([
-                    'message' => 'server_error',
+                    'message' => $message,
                     'translated_message' => db_trans('alerts.server_error'),
                     'statusCode' => 500
                 ], 500);

@@ -8,6 +8,7 @@ use App\Services\ModelFilter;
 use App\Traits\FiltersModels;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductUnitRequest;
+use App\Services\slugGenerator;
 
 class ProductUnitController extends Controller
 {
@@ -141,4 +142,9 @@ class ProductUnitController extends Controller
         });
     }
 
+    public function test()
+    {
+        $slugger = app(SlugGenerator::class);
+        dd($slugger->generate('mehdi panahi'));
+    }
 }
